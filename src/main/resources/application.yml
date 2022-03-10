@@ -1,0 +1,20 @@
+spring:
+  redis:
+    port: 6379
+    host: 127.0.0.1
+    database: 0
+  application:
+    name: multi-cache
+cache:
+  caffeine:
+    expireTime: 10m
+    initSize: 200
+    maxSize: 1000
+  redis:
+    allowNull: true
+    expireTime: 10m
+    channelTopic: cache:redis:caffeine:topic
+server:
+  port: 8080
+  servlet:
+    context-path: /multi-cache
